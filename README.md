@@ -1,8 +1,7 @@
 # Computer science
+## 1.1 Basic concept of a program: the Turing machine
 
-Source:
-
-[Numérique et sciences informatiques](x)
+Source: [Serge BAYS, Numérique et sciences informatiques, 2e édition, 2022](https://www.editions-ellipses.fr/)
 
 ## What is a program?
 
@@ -71,22 +70,26 @@ Program --> 0[Turing machine, 1936]
 2[Can be run as an argument] --> 3[Universal Turing machine, computer]
 ```
 
-Basic example of a program.
+A basic example of a program: the Turing machine.
 
 It encapsulates the fundamental concept of computing
 
-(the basis for how all programs, from the simplest to the most complex, operate):
+(the basis for how all programs operate, from the simplest to the most complex):
 
 ```mermaid
-graph TB
+graph LR
 
-Intructions --> Operations
+subgraph Instructions
 1[Input, initial state] --> Operations
+end
+
 Operations --> 2[Output, final state]
 
 ```
 
 ```c#
+// Simplest case.
+
 public static class TuringMachine
 {
     // Input: the machine receives a ribbonLength, an initial index and state

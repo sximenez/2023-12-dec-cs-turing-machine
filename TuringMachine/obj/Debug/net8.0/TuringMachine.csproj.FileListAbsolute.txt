@@ -1,0 +1,15 @@
+C:\Users\steven.jimenez\source\repos\2023-12-dec-cs-turing-machine\TuringMachine\bin\Debug\net8.0\TuringMachine.exe
+C:\Users\steven.jimenez\source\repos\2023-12-dec-cs-turing-machine\TuringMachine\bin\Debug\net8.0\TuringMachine.deps.json
+C:\Users\steven.jimenez\source\repos\2023-12-dec-cs-turing-machine\TuringMachine\bin\Debug\net8.0\TuringMachine.runtimeconfig.json
+C:\Users\steven.jimenez\source\repos\2023-12-dec-cs-turing-machine\TuringMachine\bin\Debug\net8.0\TuringMachine.dll
+C:\Users\steven.jimenez\source\repos\2023-12-dec-cs-turing-machine\TuringMachine\bin\Debug\net8.0\TuringMachine.pdb
+C:\Users\steven.jimenez\source\repos\2023-12-dec-cs-turing-machine\TuringMachine\obj\Debug\net8.0\TuringMachine.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\steven.jimenez\source\repos\2023-12-dec-cs-turing-machine\TuringMachine\obj\Debug\net8.0\TuringMachine.AssemblyInfoInputs.cache
+C:\Users\steven.jimenez\source\repos\2023-12-dec-cs-turing-machine\TuringMachine\obj\Debug\net8.0\TuringMachine.AssemblyInfo.cs
+C:\Users\steven.jimenez\source\repos\2023-12-dec-cs-turing-machine\TuringMachine\obj\Debug\net8.0\TuringMachine.csproj.CoreCompileInputs.cache
+C:\Users\steven.jimenez\source\repos\2023-12-dec-cs-turing-machine\TuringMachine\obj\Debug\net8.0\TuringMachine.sourcelink.json
+C:\Users\steven.jimenez\source\repos\2023-12-dec-cs-turing-machine\TuringMachine\obj\Debug\net8.0\TuringMachine.dll
+C:\Users\steven.jimenez\source\repos\2023-12-dec-cs-turing-machine\TuringMachine\obj\Debug\net8.0\refint\TuringMachine.dll
+C:\Users\steven.jimenez\source\repos\2023-12-dec-cs-turing-machine\TuringMachine\obj\Debug\net8.0\TuringMachine.pdb
+C:\Users\steven.jimenez\source\repos\2023-12-dec-cs-turing-machine\TuringMachine\obj\Debug\net8.0\TuringMachine.genruntimeconfig.cache
+C:\Users\steven.jimenez\source\repos\2023-12-dec-cs-turing-machine\TuringMachine\obj\Debug\net8.0\ref\TuringMachine.dll

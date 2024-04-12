@@ -87,68 +87,68 @@ Operations --> 2[Output, final state]
 
 ```
 
+#### Sequential
 ```c#
-// Simplest case.
+// Simplest case: code is read from top to bottom like a book.
 
-public static class TuringMachine
+private class TuringMachine1
 {
-    // Input: the machine receives a ribbonLength, an initial index and state
+    // Input: the machine receives a ribbonLength, an initial index and state.
     public static void Machine(int ribbonLength, int index, int state)
     {
         // , , , , , , , , , , , , , , , , , , ,
         int?[] ribbon = new int?[ribbonLength];
         Console.WriteLine(string.Join(", ", ribbon));
 
-        // Instructions: based on the state, the machine writes a value on the ribbon
+        // Instructions: based on the state, the machine writes a value on the ribbon.
         while (index < ribbon.Length)
         {
             if (state == 1)
             {
                 if (ribbon[index] == null)
                 {
-                    // Operation 1
+                    // Operation 1.
                     ribbon[index] = 1;
                     index += 1;
                     state = 2;
                 }
             }
-
             else if (state == 2)
             {
                 if (ribbon[index] == null)
                 {
-                    // Operation 2
+                    // Operation 2.
                     ribbon[index] = 0;
                     index += 1;
                     state = 1;
                 }
             }
-
             else
             {
-                // If error, terminate the program
+                // Avoid an endless loop.
                 index = ribbon.Length;
             }
-
         }
 
-        // Output: final state
+        // Output: final state.
         // 1, 0, 1, 0, 1, 0, 1, 0, 1, 0, 1, 0, 1, 0, 1, 0, 1, 0, 1, 0
         Console.WriteLine(string.Join(", ", ribbon));
     }
+}
 
-    public static void Main()
-    {
-        Machine(20, 0, 1);
-    }
+public static void Main()
+{
+    TuringMachine1.Machine(20, 0, 1);
 }
 ```
 
+#### Abstracted
 ```c#
-// We can encapsulate instructions in a separate function TransitionTable().
+// Intermediate case: code is optimized by astracting instructions away.
 
-public static class TuringMachine
+private class TuringMachine2
 {
+    // New function containing the abstracted instructions.
     public static int TransitionTable(int?[] ribbon, int index, int state)
     {
         if (state == 1)
@@ -159,7 +159,6 @@ public static class TuringMachine
                 state = 2;
             }
         }
-
         else if (state == 2)
         {
             if (ribbon[index] == null)
@@ -168,17 +167,18 @@ public static class TuringMachine
                 state = 1;
             }
         }
-
         else
         {
+            // Avoid an endless loop.
             index = ribbon.Length;
         }
-        
+
         return state;
     }
-    
+
     public static void Machine(int ribbonLength, int index, int state)
     {
+        // , , , , , , , , , , , , , , , , , , ,
         int?[] ribbon = new int?[ribbonLength];
         Console.WriteLine(string.Join(", ", ribbon));
 
@@ -188,20 +188,22 @@ public static class TuringMachine
             index += 1;
         }
 
+        // 1, 0, 1, 0, 1, 0, 1, 0, 1, 0, 1, 0, 1, 0, 1, 0, 1, 0, 1, 0
         Console.WriteLine(string.Join(", ", ribbon));
     }
+}
 
-    public static void Main()
-    {
-        Machine(20, 0, 1);
-    }
+public static void Main()
+{
+    TuringMachine2.Machine(20, 0, 1);
 }
 ```
 
+#### Recursive
 ```c#
-// Furthermore, we can use recursiveness (calling the function itself)
+// Advanced case: code is further optimized by calling upon itself.
 
-public static class TuringMachine
+private class TuringMachine3
 {
     public static int TransitionTable(int?[] ribbon, int index, int state)
     {
@@ -213,7 +215,6 @@ public static class TuringMachine
                 state = 2;
             }
         }
-
         else if (state == 2)
         {
             if (ribbon[index] == null)
@@ -222,7 +223,6 @@ public static class TuringMachine
                 state = 1;
             }
         }
-
         else
         {
             index = ribbon.Length;
@@ -231,38 +231,30 @@ public static class TuringMachine
         return state;
     }
 
-    public static void Machine(int?[] ribbon, int index, int state)
+    public static int?[] Machine(int?[] ribbon, int index, int state)
     {
-        // Termination code, otherwise infinite loop
+        // Avoid an endless loop.
         if (index < ribbon.Length)
         {
             state = TransitionTable(ribbon, index, state);
+
+            // Recursive operation.
             Machine(ribbon, index + 1, state);
         }
-    }
 
-    public static void Main()
-    {
-        int ribbonLength = 20;
-        int?[] ribbon = new int?[ribbonLength];
-
-        // , , , , , , , , , , , , , , , , , , ,
-        Console.WriteLine(string.Join(", ", ribbon));
-
-        Machine(ribbon, 0, 1);
-        
-        // 1, 0, 1, 0, 1, 0, 1, 0, 1, 0, 1, 0, 1, 0, 1, 0, 1, 0, 1, 0
-        Console.WriteLine(string.Join(", ", ribbon));
+        return ribbon;
     }
 }
-```
 
-### Programming styles
-
-```mermaid
-graph TB
-Imperative
-Iterative --> While
-Iterative --> For
-Recursive
+public static void Main()
+{
+    // , , , , , , , , , , , , , , , , , , ,
+    int?[] input = new int?[20];
+    Console.WriteLine(string.Join(", ", input));
+            
+    int?[] output = TuringMachine3.Machine(input, 0, 1);
+            
+    // 1, 0, 1, 0, 1, 0, 1, 0, 1, 0, 1, 0, 1, 0, 1, 0, 1, 0, 1, 0
+    Console.WriteLine(string.Join(", ", output));
+}
 ```
